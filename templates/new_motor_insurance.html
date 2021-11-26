@@ -1,0 +1,87 @@
+
+{% extends "base.html" %} {% block title %}Motor Insurance {% endblock %} {% block
+content %}
+
+<form action = "{{ url_for('register_motor_insurance') }}" method = "POST">
+  <h3 align="center">Motor Insurance</h3>
+{% if session.login_username %}
+  <div class="form-group">
+    <label for="username">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      value="{{session.login_username}}"
+      id="username"
+      name="username"
+      placeholder="Enter Name"
+    />
+  </div>
+  {% else %}
+    <div class="form-group">
+    <label for="username">First Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="Enter Name"
+    />
+  </div>
+  {% endif %}
+
+    <div class="form-group">
+    <label for="policy">Select Policy</label>
+      <select name="policy" id="policy" class="form-control">
+        {% for row in policies %}
+        <option value='{{row[0]}}'>{{row[0]}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+    <label for="address">Manufacturer</label>
+    <input
+      type="text"
+      class="form-control"
+      id="manufacturer"
+      name="manufacturer"
+      placeholder="Enter Manufacturer Name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="model">Model</label>
+    <input type='text' name='model' class="form-control"  id='model' />
+  </div>
+  <div class="form-group">
+    <label for="colour">Colour</label>
+    <input type='text' name='colour' class="form-control"  id='colour' />
+  </div>
+
+  <div class="form-group">
+    <label for="registration_year">Registration Year</label>
+    <input type='text' name='registration_year' placeholder="YYYY" class="form-control"  id='registration_year' />
+  </div>
+
+  <div class="form-group">
+    <label for="registration_number">Registration Number</label>
+    <input
+      type="text"
+      class="form-control"
+      id="registration_number"
+      name="registration_number"
+      placeholder="Enter registration Number"
+    />
+  </div>
+  <div class="form-group">
+    <label for="premium_selected">Premium Select</label>
+      <select name="premium_selected" id="premium_selected" class="form-control">
+        {% for rows in premiums %}
+        <option value='{{rows[1]}}'>{{rows[1]}} ( {{rows[2]}}£ with {{rows[3]}} % discount )</option>
+        {% endfor %}
+      </select>
+  </div>
+
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div align="center">
+    <h1> Welcome to Motor Insurance Dashboard</h1>
+    <br><br>
+    <table border = "0" cellpadding = "10" cellspacing = "10">
+        {% if session.login_username %}
+        <tr>
+        {% if check_num > 0 %}
+        <td>
+            <a href = "\viewmotorinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            My Insurance Details</button></a>
+        </td>
+            <td>
+            <a href = "\motorupdateinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            Motor Insurance Update</button></a>
+        </td>
+
+        <td>
+            <a href = "\motordelete">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            Motor Insurance Delete</button></a>
+        </td>
+        {% else %}
+            <td>
+            <a href = "\motornewinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            New Motor Insurance </button></a>
+        </td>
+            {% endif %}
+        </tr>
+        {% else %}
+        <tr>
+            <td>
+            <a href = "\anyusermotorinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            New Motor Insurance </button></a>
+        </td>
+        </tr>
+        {% endif %}
+
+    </table>
+
+
+</div>
+{% endblock %}

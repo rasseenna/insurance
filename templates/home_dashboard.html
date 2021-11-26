@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div align="center">
+    <h1> Welcome to Home Insurance Dashboard</h1>
+    <br><br>
+    <table border = "0" cellpadding = "10" cellspacing = "10">
+        {% if session.login_username %}
+        <tr>
+        {% if check_num > 0 %}
+        <td>
+            <a href = "\viewhomeinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            My Insurance Details</button></a>
+        </td>
+            <td>
+            <a href = "\homeupdateinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            Home Insurance Update</button></a>
+        </td>
+
+        <td>
+            <a href = "\homedelete">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            Home Insurance Delete</button></a>
+        </td>
+        {% else %}
+            <td>
+            <a href = "\homenewinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            New Home Insurance </button></a>
+        </td>
+            {% endif %}
+        </tr>
+        {% else %}
+        <tr>
+            <td>
+            <a href = "\anyuserhomeinsurance">
+            <button style="height:75px;width:150px; background-color: #B3B6B7 ; border-color: #B3B6B7; color: #34495E" >
+            New Home Insurance </button></a>
+        </td>
+        </tr>
+        {% endif %}
+
+    </table>
+
+
+</div>
+{% endblock %}

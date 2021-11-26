@@ -1,0 +1,38 @@
+
+{% extends "base.html" %} {% block title %}Motor Insurance {% endblock %} {% block
+content %}
+<b> For next Year You have to Pay {{ yearly_pay }} £ only. Congratulations!!!! </b>
+{% for row_1 in rows: %}
+<form action = "{{ url_for('update_home_insurance') }}" method = "POST">
+  <h3 align="center">Your Motor Insurance Details</h3>
+    <div class="form-group">
+        <label>First Name</label> : <b>{{row_1[1]}}</b>
+  </div>
+
+    <div class="form-group">
+        <label>Select Policy</label> : <b>{{row_1[2]}}</b>
+    </div>
+
+    <div class="form-group">
+        <label>Manufacturer</label> : <b>{{row_1[3]}}</b>
+  </div>
+
+  <div class="form-group">
+      <label>Model</label> : <b>{{row_1[4]}}</b>
+  </div>
+  <div class="form-group">
+      <label>Colour</label> : <b>{{row_1[5]}}</b>
+  </div>
+  <div class="form-group">
+      <label>Registration Year</label> : <b>{{row_1[6]}}</b>
+  </div>
+ <div class="form-group">
+     <label>Registration Number</label> : <b>{{row_1[7]}}</b>
+  </div>
+  <div class="form-group">
+      <label>Premium Select</label> : <b>{{row_1[8]}}</b>
+  </div>
+
+</form>
+{% endfor %}
+{% endblock %}
